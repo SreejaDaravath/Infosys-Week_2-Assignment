@@ -34,6 +34,11 @@ git clone https://github.com/SreejaDaravath/Infosys-Week_2-Assignment.git
 cd Infosys-Week_2-Assignment
 ```
 
+**Note:** If you've forked this repository, replace the URL with your fork:
+```bash
+git clone https://github.com/<your-username>/Infosys-Week_2-Assignment.git
+```
+
 ### 2. Install Dependencies
 
 Using npm:
@@ -54,7 +59,11 @@ The project uses Supabase for backend services. The environment variables are al
 - `VITE_SUPABASE_PUBLISHABLE_KEY` - Your Supabase anonymous/public key
 - `VITE_SUPABASE_PROJECT_ID` - Your Supabase project ID
 
-**Note:** For production deployments or personal use, you should create your own Supabase project and update these values.
+**⚠️ Security Note:** The `.env` file in this repository contains demo credentials. For production deployments or personal use:
+- Create your own Supabase project (see "Setting Up Your Own Supabase Project" section)
+- **Never commit real credentials to version control**
+- Use environment variables in your deployment platform instead
+- Add `.env.local` to `.gitignore` for local development with private credentials
 
 ## 🏃‍♂️ Running the Application
 
@@ -79,13 +88,27 @@ The application will be available at `http://localhost:5173` (or another port if
 To preview the production build locally:
 
 1. Build the project:
+   
+   Using npm:
    ```bash
    npm run build
    ```
+   
+   Using bun:
+   ```bash
+   bun run build
+   ```
 
 2. Preview the build:
+   
+   Using npm:
    ```bash
    npm run preview
+   ```
+   
+   Using bun:
+   ```bash
+   bun run preview
    ```
 
 ## 🛠️ Available Scripts

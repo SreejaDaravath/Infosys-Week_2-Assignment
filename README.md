@@ -90,18 +90,30 @@ To preview the production build locally:
 
 ## 🛠️ Available Scripts
 
+With npm:
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run build:dev` - Build in development mode
 - `npm run lint` - Run ESLint to check code quality
 - `npm run preview` - Preview production build locally
 
+With bun (faster alternative):
+- `bun run dev` - Start development server
+- `bun run build` - Build for production
+- `bun run build:dev` - Build in development mode
+- `bun run lint` - Run ESLint to check code quality
+- `bun run preview` - Preview production build locally
+
 ## 🏗️ Project Structure
 
 ```
 ├── src/
-│   ├── components/       # Reusable UI components
-│   ├── pages/           # Page components (Index, Auth, NotFound)
+│   ├── components/       # Reusable UI components (Header, CreateShoutOut, ShoutOutCard, etc.)
+│   │   └── ui/          # shadcn/ui component library
+│   ├── pages/           # Page components
+│   │   ├── Index.tsx    # Main page with shout-outs feed
+│   │   ├── Auth.tsx     # Authentication page
+│   │   └── NotFound.tsx # 404 page
 │   ├── integrations/    # Supabase client and types
 │   ├── hooks/           # Custom React hooks
 │   ├── lib/             # Utility functions
@@ -154,8 +166,11 @@ If you want to use your own Supabase backend:
 1. Create a free account at [supabase.com](https://supabase.com/)
 2. Create a new project
 3. Go to Project Settings → API
-4. Copy your project URL and anon/public key
-5. Update the `.env` file with your credentials
+4. Copy your project URL, anon/public key, and project ID
+5. Update the `.env` file with your credentials:
+   - `VITE_SUPABASE_URL` - Your Supabase project URL
+   - `VITE_SUPABASE_PUBLISHABLE_KEY` - Your anon/public key
+   - `VITE_SUPABASE_PROJECT_ID` - Your Supabase project ID
 6. Run the migrations from the `supabase/migrations` folder (if any)
 
 ## 🐛 Troubleshooting
